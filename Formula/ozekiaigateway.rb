@@ -14,8 +14,10 @@ class Ozekiaigateway < Formula
     www_dir = "#{HOMEBREW_PREFIX}/var/www"
 
     tar_path = cached_download
-
-    system "tar", "xf", tar_path.to_s, "--strip-components=0", "--directory=#{www_dir}"
+    
+    mkdir_p www_dir
+    
+    system "tar", "xf", tar_path, "--strip-components=0", "-C", www_dir
     
   end
 
