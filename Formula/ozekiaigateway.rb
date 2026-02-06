@@ -10,13 +10,14 @@ class Ozekiaigateway < Formula
   depends_on "php"
 
   def install
-    stage_dir = Pathname.new(@stage.path)
+    
+    unpack_dir = Pathname.pwd  
     
     www_dir = "#{HOMEBREW_PREFIX}/var/www"
     mkdir_p www_dir
     
-    cp_r stage_dir/"ozeki", www_dir
-    cp_r stage_dir/"ozekiservices", www_dir
+    cp_r "ozeki", www_dir, verbose: true
+    cp_r "ozekiservices", www_dir, verbose: true
 
   end
 
