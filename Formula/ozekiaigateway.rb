@@ -12,7 +12,10 @@ class Ozekiaigateway < Formula
   def install
     
     www_dir = "#{HOMEBREW_PREFIX}/var/www"
-    system "tar", "xf", "#{@downloaded_file}", "--strip-components=0", "--directory=#{www_dir}"
+
+    tar_path = cached_download
+
+    system "tar", "xf", tar_path.to_s, "--strip-components=0", "--directory=#{www_dir}"
     
   end
 
@@ -35,6 +38,6 @@ class Ozekiaigateway < Formula
   test do
     www_dir = "#{HOMEBREW_PREFIX}/var/www"
     assert_predicate Pathname(www_dir), :exist?, "WWW dir created"
-    assert_predicate Pathname("#{www_dir}/index.php"), :exist?, "Web files installed"  # Ellenőrizd a tar tartalmát
+    assert_predicate Pathname("#{www_dir}/index.php"), :exist?, "Web files installed" 
   end
 end
