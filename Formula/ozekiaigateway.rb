@@ -36,9 +36,7 @@ class Ozekiaigateway < Formula
     
     chmod 0755, www_dir
     chown ENV["USER"], OS.mac? ? "_www" : "www-data", www_dir, recursive: true
-    
-    system "#{HOMEBREW_PREFIX}/bin/brew", "services", "restart", "httpd" if service_running?("httpd")
-    system "#{HOMEBREW_PREFIX}/bin/brew", "services", "restart", "php" if service_running?("php")
+
   end
 
   def service_running?(name)
