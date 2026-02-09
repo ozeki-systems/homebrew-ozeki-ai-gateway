@@ -6,11 +6,10 @@ class Ozekiaigateway < Formula
   
   sha256 "302efb531cfd194e6362dadf174cadb3d5199cfa68bcdf364f22f53d5d2ca897"
 
-  depends_on "php"
+  depends_on "php@8.3"
   depends_on "httpd"
 
   def install
-    
     unpack_dir = Pathname.pwd  
     
     www_dir = "#{HOMEBREW_PREFIX}/var/www"
@@ -35,7 +34,10 @@ class Ozekiaigateway < Formula
     (www_dir).mkpath unless Dir.exist?(www_dir)
     
     chmod 0755, www_dir
-    chown ENV["USER"], OS.mac? ? "_www" : "www-data", www_dir, recursive: true
+    
+    ohai "Ozeki AI Gateway installed: #{www_dir}/ozeki/"
+    ohai "Start Apache: brew services start httpd"
+    ohai "URL: http://localhost:8080/ozeki/"
 
   end
 
