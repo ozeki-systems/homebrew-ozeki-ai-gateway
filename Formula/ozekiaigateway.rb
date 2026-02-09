@@ -6,7 +6,7 @@ class Ozekiaigateway < Formula
   
   sha256 "302efb531cfd194e6362dadf174cadb3d5199cfa68bcdf364f22f53d5d2ca897"
 
-  depends_on "php@8.3"
+  depends_on "php@8.1"
   depends_on "httpd"
 
   def install
