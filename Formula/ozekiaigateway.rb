@@ -18,13 +18,13 @@ class Ozekiaigateway < Formula
     cp_r "ozeki", www_dir, verbose: true
     cp_r "ozekiservices", www_dir, verbose: true
 
-    (bin/"ozeki-web").write <<~EOS
+    (bin/"ozeki").write <<~EOS
     #!/bin/bash
     echo "Ozeki AI Gateway installed: /usr/local/var/www/ozeki/"
     echo "Apache: brew services start httpd"
     echo "URL: http://localhost:8080/ozeki/"
     EOS
-    chmod 0755, bin/"ozeki-web"
+    chmod 0755, bin/"ozeki"
 
   end
 
